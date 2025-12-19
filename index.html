@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GroupHire - Find Jobs As A Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat h3 {
+            font-size: 36px;
+            margin-bottom: 5px;
+        }
+        
+        .stat p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .section {
+            padding: 60px 20px;
+        }
+        
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .feature {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature h3 {
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .for-groups {
+            background: #f0f4ff;
+        }
+        
+        .for-companies {
+            background: #fff8f0;
+        }
+        
+        .testimonial-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial p {
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            font-size: 14px;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .checkmark {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .xmark {
+            color: #dc3545;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">GroupHire</div>
+            <nav>
+                <a href="#for-groups">For Groups</a>
+                <a href="#for-companies">For Companies</a>
+                <a href="#pricing">Pricing</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Hire Creative Teams, Not Individuals</h1>
+            <p>Connect with pre-vetted groups that already work well together. Launch projects 3 weeks faster.</p>
+            
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="scrollToForm('group')">Join as Group</button>
+                <button class="btn btn-secondary" onclick="scrollToForm('company')">Post a Job</button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <h3>250+</h3>
+                    <p>Creative Teams</p>
+                </div>
+                <div class="stat">
+                    <h3>25+</h3>
+                    <p>Successful Hires</p>
+                </div>
+                <div class="stat">
+                    <h3>48 hrs</h3>
+                    <p>Avg Hire Time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOR GROUPS SECTION -->
+    <section class="section for-groups" id="for-groups">
+        <div class="container">
+            <h2>For Creative Groups</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 18px;">
+                Find high-quality projects built for teams like yours. Stop hunting for clients individually.
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>📌 Find Jobs Built for Teams</h3>
+                    <p>Jobs that specifically need your exact skill combination. Browse, apply, and get hired as a complete team.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>💼 Showcase Your Synergy</h3>
+                    <p>Prove your team works well together. Share past projects and testimonials from companies who've hired you.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>⚡ Get Hired Faster</h3>
+                    <p>3x faster than LinkedIn. Companies see pre-built teams with proven collaboration history.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>💰 Get Fair Rates</h3>
+                    <p>Platform connects you directly with paying companies. No middlemen, no commission on your earnings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOR COMPANIES SECTION -->
+    <section class="section for-companies" id="for-companies">
+        <div class="container">
+            <h2>For Companies</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 18px;">
+                Hire pre-vetted creative teams. Assembly time: 0 hours. Quality guarantee: ✓
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>🎯 Vetted Teams, Not Random Freelancers</h3>
+                    <p>All teams verified, portfolio reviewed, and rated by other companies. No surprises.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>⏱️ Hire in 48 Hours</h3>
+                    <p>No recruitment process. No team assembly. Teams ready to start immediately.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>💬 One Point of Contact</h3>
+                    <p>Communicate with a single team lead. Not 5 different freelancers texting you separately.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>🏆 Proven Synergy = Better Results</h3>
+                    <p>They've worked together before. They communicate well. Projects get completed on time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="section">
+        <div class="container">
+            <h2>How We Compare</h2>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>LinkedIn</th>
+                    <th>Upwork</th>
+                    <th>GroupHire</th>
+                </tr>
+                <tr>
+                    <td><strong>Cost per Hire</strong></td>
+                    <td>₹2,00,000+</td>
+                    <td>5-20% commission</td>
+                    <td>₹60,000/year</td>
+                </tr>
+                <tr>
+                    <td><strong>Time to Hire</strong></td>
+                    <td>3-4 weeks</td>
+                    <td>1-2 weeks</td>
+                    <td>48 hours</td>
+                </tr>
+                <tr>
+                    <td><strong>Quality</strong></td>
+                    <td>Variable</td>
+                    <td>Very variable</td>
+                    <td>Verified & vetted</td>
+                </tr>
+                <tr>
+                    <td><strong>Team Assembly</strong></td>
+                    <td>Your job</td>
+                    <td>Your job</td>
+                    <td><span class="checkmark">✓ Built-in synergy</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Group Hiring</strong></td>
+                    <td>Not optimized</td>
+                    <td>Not optimized</td>
+                    <td><span class="checkmark">✓ Specialized</span></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2>What Users Say</h2>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"We used to spend 3 weeks hiring freelancers. Now we find the right team in 48 hours. Game changer."</p>
+                    <div class="testimonial-author">— Rahul, E-commerce Manager</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Finally a platform that gets it. We don't have to explain our team synergy anymore. They just 'get it'."</p>
+                    <div class="testimonial-author">— Ananya, Video Production Lead</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Best platform for finding video production teams. Quality is consistently high, and support is great."</p>
+                    <div class="testimonial-author">— Maya, Creative Director</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <h2>Simple Pricing</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>For Groups 👥</h3>
+                    <p><strong>FREE</strong></p>
+                    <ul style="margin-top: 15px; text-align: left;">
+                        <li>✓ Browse unlimited jobs</li>
+                        <li>✓ Apply to jobs</li>
+                        <li>✓ Post portfolio samples</li>
+                        <li>✓ Direct messaging with companies</li>
+                    </ul>
+                </div>
+                
+                <div class="feature">
+                    <h3>For Companies 🏢</h3>
+                    <p><strong>₹5,000/month</strong></p>
+                    <ul style="margin-top: 15px; text-align: left;">
+                        <li>✓ Post 10 jobs/month</li>
+                        <li>✓ Browse 250+ teams</li>
+                        <li>✓ Messaging & collaboration</li>
+                        <li>✓ Team analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Join 250+ teams and companies already on GroupHire</p>
+            
+            <form onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <select name="type" required>
+                        <option value="">I am a...</option>
+                        <option value="group">Creative Group / Team</option>
+                        <option value="company">Company / Hiring Manager</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Your phone (optional)">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Join Now</button>
+            </form>
+            
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.9;">
+                ✓ No credit card required • ✓ Free access • ✓ Cancel anytime
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GroupHire. All rights reserved.</p>
+            <p style="font-size: 12px; margin-top: 10px;">
+                <a href="#" style="color: #999;">Terms</a> • 
+                <a href="#" style="color: #999;">Privacy</a> • 
+                <a href="mailto:palludas001@gmail.com" style="color: #999;">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToForm(type) {
+            const element = document.querySelector('.cta-section');
+            element.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                const typeSelect = document.querySelector('select[name="type"]');
+                typeSelect.value = type;
+            }, 500);
+        }
+        
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const formData = {
+                type: document.querySelector('select[name="type"]').value,
+                email: document.querySelector('input[name="email"]').value,
+                phone: document.querySelector('input[name="phone"]').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Send to your Formspree form
+            fetch('https://formspree.io/f/mvzpovwq', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: { 'Content-Type': 'application/json' }
+            }).then(() => {
+                alert('Thanks! We\'ll be in touch soon.');
+                e.target.reset();
+            }).catch(() => {
+                alert('Thanks for signing up! We\'ll contact you soon.');
+                e.target.reset();
+            });
+        }
+    </script>
+</body>
+</html>
