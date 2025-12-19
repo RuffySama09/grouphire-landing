@@ -411,12 +411,28 @@
                     <h3>🏆 Proven Synergy = Better Results</h3>
                     <p>They've worked together before. They communicate well. Projects get completed on time.</p>
                 </div>
+                        </div>
+        </div>
+    </section>
+
+    <!-- FIND YOUR PEOPLE SECTION -->
+    <section class="section" style="background: #e8f4f8;">
+        <div class="container">
+            <h2>Don't Have a Group Yet?</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 18px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Find like-minded creators in your niche. Connect with other freelancers. Form a team together. Get hired as a unit with no commissions.
+            </p>
+            
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="scrollToForm('solo')">Find Team Members</button>
+                <button class="btn btn-secondary" style="background: #667eea; color: white; border: none;" onclick="scrollToForm('solo')">Learn More</button>
             </div>
         </div>
     </section>
 
     <!-- COMPARISON TABLE -->
     <section class="section">
+
         <div class="container">
             <h2>How We Compare</h2>
             
@@ -526,11 +542,13 @@
             
             <form onsubmit="handleSubmit(event)">
                 <div class="form-group">
-                    <select name="type" required>
+                                        <select name="type" required>
                         <option value="">I am a...</option>
                         <option value="group">Creative Group / Team</option>
                         <option value="company">Company / Hiring Manager</option>
+                        <option value="solo">Going solo (for now :)</option>
                     </select>
+
                 </div>
                 
                 <div class="form-group">
